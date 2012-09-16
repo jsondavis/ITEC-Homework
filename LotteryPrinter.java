@@ -1,4 +1,4 @@
-package homework2;
+//package homework2;
 import java.util.Random;
 
 /**
@@ -12,15 +12,15 @@ import java.util.Random;
  * followed by a lottery combination. 
  */
 public class LotteryPrinter {
-   public String lottonumbers;
+  // public String lottonumbers;
     
-    public LotteryPrinter(){
+    public static void main(String[] args){
         String ret;
         ret = "The following number combo will* make you rich \n"; 
         ret += String.format("%d , %d , %d , ", pickNumber(),pickNumber(),pickNumber());
         ret += String.format("%d , %d , %d \n", pickNumber(),pickNumber(),pickNumber());
         ret += "*Results not gauranteed";
-        this.lottonumbers = ret;
+        return ret;
     }
     
     
