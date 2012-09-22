@@ -3,11 +3,11 @@
  * Chapter 4. Problem 4.16 Page 168
  * A large letter H can be produced like this:
 
- *     *  ******  *       ******
- *     *  *       *       *    *
-  *****   ****    *       *    *
- *     *  *       *       *    *
- *     *  ******  ******  ******
+ *     * 
+ *     *
+  *****
+ *     *  
+ *     *  
 
  * Use the class
 
