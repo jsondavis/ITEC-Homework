@@ -97,9 +97,11 @@ public class MilitaryTime {
         String enmins = (endmins < 10)? "0"+endmins: ""+endmins ;
         if(after){
         this.returntime = String.format("The first time you entered was after the second!\n"
-                + "It will be %s from %d%s to %d%s", ret, endhrs, enmins, starthrs,stmins);
+                + "It will be %s from %d%s to %d%s.", ret, endhrs, enmins, starthrs,stmins);
+        this.returntime += String.format("\nUnless you meant the following day.\n"
+                + "Then it is %d hours and %s minutes to %d%s.",hrs+24,displaymins,starthrs,stmins);
         }else{
-        this.returntime = String.format("It is %s from %d%s to %d%s", ret,starthrs, stmins, endhrs, enmins);
+        this.returntime = String.format("It is %s from %d%s to %d%s.", ret,starthrs, stmins, endhrs, enmins);
         }
     }
 
