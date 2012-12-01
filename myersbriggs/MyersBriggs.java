@@ -1,13 +1,13 @@
 package myersbriggs;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author JDavis
  */
 public class MyersBriggs {
     
-    // @name     the name of the subject the results are for
-    // @results  the 70 character result string
     public String name , results;
 
     public MyersBriggs (String name, String answerstring)throws Exception{
@@ -15,20 +15,26 @@ public class MyersBriggs {
         HandleResults MB = new HandleResults(answerstring);
         results = MB.toString();
     }
-
-    /*@return    the result string from HandleResults combined with the name */
+    
     public String getResult(){
         return name + "\n" + results;
     }
-
     /**
      * @param args the command line arguments
-     *  
-     *  currently the code in the main method is in place for testing purposes
      */
     public static void main(String[] args)throws Exception {
 
-        MyersBriggs example = new MyersBriggs("Snoopy" , "AABAABBABBAABBABBAABBABBAABBABBAABBBAABBAABAABBAABAABBAABAABBAAAAABBAA");
-        System.out.println(example.getResult());
+        String name = JOptionPane.showInputDialog(null, "Whose answers are being calculated? : ");
+        
+        String answerString = JOptionPane.showInputDialog(null, "Please input the answer String: \n (should be 70 A's or B's)");
+        
+        while(!answerString.matches("[A-B]{70}")){
+            answerString = JOptionPane.showInputDialog(null, "Please input the answer String: \n (should be 70 A's or B's)");
+        }
+        // test string
+        //  "AABAABBABBAABBABBAABBABBAABBABBAABBBAABBAABAABBAABAABBAABAABBAAAAABBAA"
+        
+        MyersBriggs example = new MyersBriggs(name , answerString);
+        JOptionPane.showMessageDialog(null,example.getResult());
     }
 }
