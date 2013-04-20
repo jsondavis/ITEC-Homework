@@ -1,66 +1,67 @@
 package edu.ggc.jdavis37;
 
-
 import java.util.Arrays;
+
+
+/**
+ * class : BinarySearch
+ * 
+ * @author Jason Davis
+ * @version 1.0
+ * @course ITEC 2150 Spring 2013 written April 15, 2013
+ * 
+ *         This class searches an array of integers for an integer using a
+ *         binary search (divide and conquer) algorithm.
+ * 
+ *         The purpose of this class is to demonstrate the use of a binary
+ *         search algorithm.
+ */
 
 public class BinarySearch
 {
-	public static int statcompare = 0;
 
-	
-	public static void resetStatic()
-	{
-		statcompare = 0;
-	}
-	
-	
-	
-	public static int search(int[] list, int find)
+	/**
+	 * Method : search This method searches the array parameter for the find
+	 * parameter recursively and returns an integer value representing the
+	 * number of comparisons performed.
+	 * 
+	 * @param list
+	 *            a sorted array of integers to be searched
+	 * @param find
+	 *            an integer to search the list for
+	 * @return the integer number of comparisons performed
+	 */
+	public int search(int[] list, int find)
 	{
 		int guess = 0;
-		if(list.length > 1) 
+		if (list.length <= 1)
+		{
+			return -1;
+		}
+		if (list.length > 1)
 		{
 			guess = list[list.length / 2];
 		}
-			
-		if(list.length < 1)
-		{
-			return -1;
-		}
-		else if(list.length == 1 && list[0] != find)
-		{
-			return -1;
-		}
-		else if(guess == find)
+
+		if (guess == find)
 		{
 			return 1;
 		}
-		else if(guess > find)
+		else if (find < guess)
 		{
-			int[] test = Arrays.copyOfRange(list, 0, (list.length/2));
-			int searchReturn = search(test, find);
-			if(searchReturn >= 0)
-			{
-				return searchReturn + 1;
-			}
-			else
-			{
-				return searchReturn -1;
-			}
+			BinarySearch b = new BinarySearch();
+			int[] test = Arrays.copyOfRange(list, 0, list.length / 2 - 1);
+			return b.search(test, find) + 1;
 		}
-		else
+		else if (find > guess)
 		{
-			int[] test = Arrays.copyOfRange(list, list.length/2 , list.length);
-			int searchReturn = search(test, find);
-			if(searchReturn >= 0)
-			{
-				return searchReturn + 1;
-			}
-			else
-			{
-				return searchReturn -1;
-			}
+			BinarySearch b = new BinarySearch();
+			int[] test = Arrays.copyOfRange(list, list.length / 2 + 1,
+					list.length);
+			return b.search(test, find) + 1;
 		}
+
+		return 0;
 	}
-	
+
 }
