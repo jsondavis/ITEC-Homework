@@ -1,8 +1,9 @@
-#This section of the repository contains most of my code from Spring 2013 Intermediate Programming#
+#Intermediate Programming#
+##This section of the repository contains most of my code from Spring 2013
 
 - CrazyEights is the project for the spring
 - ICX is an In Class Activity
--- IC2 was a picture of the completed problems
+- - IC2 was a picture of the completed problems
 - HomeworkX is just that a somewhat larger homework problem
 
 ###Notes
