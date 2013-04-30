@@ -7,9 +7,9 @@ import java.util.Collections;
 public class CardDeck
 {
     private static int DECKSIZE = 52;
-    private static String RANKS = {"A", "2", "3", "4", "5", "6", "7"
+    private static String[] RANKS = {"A", "2", "3", "4", "5", "6", "7",
                                    "8", "9", "T", "J", "Q", "K"};
-    private static String SUITS = {"C", "D", "H", "S"};    
+    private static String[] SUITS = {"C", "D", "H", "S"};    
 
 
     private ArrayList<Card> deck = new ArrayList<Card>();
@@ -36,16 +36,13 @@ public class CardDeck
         }
     }
 
-    public Card deal() throws EndOfDeckException
+    public Card deal()
     {
         if(deckIndex < DECKSIZE)
         {
             return deck.get(deckIndex++);
         }
-        else
-        {
-            throw new EndOfDeckException("End of deck!");
-        }
+        return null;
     }
 
     public Card playCard(int index)
